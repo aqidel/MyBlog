@@ -14,6 +14,7 @@ class Router {
       if ($url == $route) {
         $path = ucfirst($options['controller']) . 'Controller';
         $controller = new $path($options);
+        $controller->render();
         return;
       }
     }

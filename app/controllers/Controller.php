@@ -11,7 +11,7 @@ class Controller {
   }
 
   public function render() {
-    echo $this->action;
+    require 'app/views/layouts/' . $this->controller . '.php';
   }
   
 }
