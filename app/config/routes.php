@@ -6,10 +6,6 @@ return [
     'controller' => 'main',
     'action' => 'mainAction',
   ],
-  'about' => [
-    'controller' => 'main',
-    'action' => 'aboutAction',
-  ],
   'admin/login' => [
     'controller' => 'admin',
     'action' => 'loginAction',
@@ -25,10 +21,6 @@ return [
   'admin/posts' => [
     'controller' => 'admin',
     'action' => 'postsListAction',
-  ],
-  'admin/users' => [
-    'controller' => 'admin',
-    'action' => 'userListAction',
   ],
 
 ];
