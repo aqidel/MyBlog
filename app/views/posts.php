@@ -4,7 +4,7 @@
     <div class="avatar"></div>
     <div class="flex-inner-wrap">
       <p>Light blog app by Ed Nuriev.</p>
-      <p>Go to <a href="#">admin</a> to create or delete posts.</p>
+      <p>Go to <a href="/admin">admin</a> to create or delete posts.</p>
     </div>
   </div>
 </div>

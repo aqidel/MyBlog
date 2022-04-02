@@ -1,17 +1,19 @@
 <?php
 
-class Controller {
+abstract class Controller {
 
   public $controller;
-  public $action;
+  public $view;
+  public $route;
 
-  function __construct($options) {
+  function __construct($options, $route) {
     $this->controller = $options['controller'];
-    $this->action = $options['action'];
+    $this->view = $options['view'];
+    $this->route = $route;
   }
 
   public function render() {
-    require 'app/views/posts.php';
+    require 'app/views/' . $this->view . '.php';
   }
   
 }

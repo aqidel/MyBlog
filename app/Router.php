@@ -1,19 +1,21 @@
 <?php
 
-require 'controllers/MainController.php';
-
 class Router {
 
+  public $routes;
+  public $url;
+
   function __construct($url) {
+    $this->routes = require 'config/routes.php';
+    $this->url = trim($url, '/');
+    $this->match_url();
+  }
 
-    $routes = require 'config/routes.php';
-
-    $url = trim($url, '/');
-
-    foreach ($routes as $route => $options) {
-      if ($url == $route) {
-        $path = ucfirst($options['controller']) . 'Controller';
-        $controller = new $path($options);
+  public function match_url() {
+    foreach ($this->routes as $route => $options) {
+      if ($this->url == $route) {
+        $class = ucfirst($options['controller']) . 'Controller';
+        $controller = new $class($options, $route);
         $controller->render();
         return;
       }

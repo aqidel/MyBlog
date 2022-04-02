@@ -103,3 +103,28 @@ main {
   text-align: justify;
   color: #000000;
 }
+
+#login {
+  padding: 20px;
+  position: absolute;
+  top: 30%;
+  background-color: #99ddff;
+}
+
+.input {
+  margin-bottom: 10px;
+}
+
+.login-text {
+  margin: 0;
+  font-family: 'Roboto';
+  font-size: 14px;
+}
+
+#submit-wrap {
+  margin: 0;
+}
+
+#submit-wrap input {
+  font-family: 'Roboto';
+}
