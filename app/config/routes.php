@@ -4,15 +4,23 @@ return [
 
   '' => [
     'controller' => 'main',
-    'view' => 'posts',
+    'action' => 'posts',
   ],
   'admin/login' => [
     'controller' => 'admin',
-    'view' => 'login',
+    'action' => 'login',
+  ],
+  'admin/logout' => [
+    'controller' => 'admin',
+    'action' => 'logout',
   ],
   'admin' => [
     'controller' => 'admin',
-    'view' => 'admin',
+    'action' => 'create',
+  ],
+  'admin/delete' => [
+    'controller' => 'admin',
+    'action' => 'delete',
   ],
 
 ];

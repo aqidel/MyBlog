@@ -23,22 +23,9 @@ class Router {
 
   public function controller_call($options, $route) {
     $class = ucfirst($options['controller']) . 'Controller';
-    switch ($class) {
-      case 'MainController':
-        $controller = new MainController($options, $route);
-        $controller->render();
-        break;
-      case 'AdminController':
-        $controller = new AdminController($options, $route);
-        if (!$controller->is_logged()) {
-          header('Location: http://myblog.ru/admin/login');
-        } else {
-          $controller->render();
-        }
-        break;
-      default:
-        echo '404';
-    }
+    $action = $options['action'] . '_action';
+    $controller = new $class($options, $route);
+    $controller->$action();
   }
 
 }

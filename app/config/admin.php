@@ -2,7 +2,7 @@
 
 return [
   
-  'admin' => 'admin',
-  'admin' => 'admin',
+  'login' => 'admin',
+  'password' => 'admin',
   
 ];

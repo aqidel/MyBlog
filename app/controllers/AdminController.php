@@ -2,12 +2,20 @@
 
 class AdminController extends Controller {
 
-  public function is_logged() {
-    if ($this->route == 'admin') {
-      return false;
-    } else {
-      return true;
-    }
+  public function login_action() {
+    //
+  }
+
+  public function logout_action() {
+    //
+  }
+
+  public function create_action() {
+    //
+  }
+
+  public function delete_action() {
+    //
   }
 
 }
