@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+use app\core\View;
+
 class Controller {
 
   public $action;
@@ -9,6 +11,7 @@ class Controller {
 
   function __construct($action) {
     $this->action = $action;
+    $this->view = new View($action);
   }
   
 }

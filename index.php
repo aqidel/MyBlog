@@ -18,6 +18,8 @@
       }
     });
 
+    session_start();
+
     use app\core\Router;
 
     $router = new Router($_SERVER['REQUEST_URI']);
