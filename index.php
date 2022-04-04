@@ -11,11 +11,14 @@
   <main>
     <?php
 
-    spl_autoload_register(function ($class_name) {
-      require 'app/controllers/' . $class_name . '.php';
+    spl_autoload_register(function($class) {
+      $path = str_replace('\\', '/', $class . '.php');
+      if (file_exists($path)) {
+          require $path;
+      }
     });
 
-    require 'app/Router.php';
+    use app\core\Router;
 
     $router = new Router($_SERVER['REQUEST_URI']);
 
