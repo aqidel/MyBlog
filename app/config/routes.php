@@ -4,7 +4,7 @@ return [
 
   '' => [
     'controller' => 'main',
-    'action' => 'posts',
+    'action' => 'main',
   ],
   'admin/login' => [
     'controller' => 'admin',
@@ -17,6 +17,10 @@ return [
   'admin' => [
     'controller' => 'admin',
     'action' => 'create',
+  ],
+  'admin/posts' => [
+    'controller' => 'admin',
+    'action' => 'posts',
   ],
   'admin/delete' => [
     'controller' => 'admin',

@@ -15,7 +15,6 @@
     data-bs-placement="right"
     title="Login: admin"
     required>
-  <div class="invalid-feedback">Wrong login!</div>
   <label class="form-label" for="password-input">
     Password:
   </label>
@@ -28,7 +27,6 @@
     data-bs-placement="right"
     title="Password: admin"
     required>
-  <div class="invalid-feedback">Wrong password!</div>
   <input
     class="mt-3 btn btn-primary" 
     type="submit" 

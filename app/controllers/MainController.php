@@ -6,7 +6,7 @@ use app\core\Controller;
 
 class MainController extends Controller {
 
-  public function posts_action() {
+  public function main_action() {
     $this->view->render();
   }
   
