@@ -22,7 +22,8 @@ class AdminController extends Controller {
   }
 
   public function logout_action() {
-    //
+    unset($_SESSION['admin']);
+    header('Location: http://myblog.ru/admin/login');
   }
 
   public function create_action() {
