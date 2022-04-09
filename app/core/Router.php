@@ -28,7 +28,7 @@ class Router {
     if (class_exists($class)) {
       $action = $options['action'] . '_action';
       if (method_exists($class, $action)) {
-        $controller = new $class($options['action']);
+        $controller = new $class($options['action'], $options['controller']);
         $controller->$action();
       } else {
         echo 'Such action does not exist!';
