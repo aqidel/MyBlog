@@ -16,11 +16,15 @@ return [
   ],
   'admin' => [
     'controller' => 'admin',
-    'action' => 'create',
+    'action' => 'admin',
   ],
   'admin/posts' => [
     'controller' => 'admin',
     'action' => 'posts',
+  ],
+  'admin/add' => [
+    'controller' => 'admin',
+    'action' => 'add',
   ],
   'admin/delete' => [
     'controller' => 'admin',

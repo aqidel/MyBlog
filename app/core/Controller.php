@@ -21,7 +21,7 @@ class Controller {
   public function init_model($name) {
     $path = 'app\models\\' . ucfirst($name);
 		if (class_exists($path)) {
-			return new $path;
+			return new $path($name);
 		}
   }
   

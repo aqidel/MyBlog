@@ -26,7 +26,7 @@ class AdminController extends Controller {
     header('Location: http://myblog.ru/admin/login');
   }
 
-  public function create_action() {
+  public function admin_action() {
     if (!$_SESSION['admin']) {
       header('Location: http://myblog.ru/admin/login');
     } else {
@@ -35,6 +35,10 @@ class AdminController extends Controller {
   }
 
   public function posts_action() {
+    //
+  }
+
+  public function add_action() {
     //
   }
 

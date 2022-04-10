@@ -11,7 +11,7 @@
     </a>
   </div>
   <div class="form-block">
-    <form id="admin-form">
+    <form id="admin-form" action="/admin/add" method="post">
       <div class="mb-2">
         <label class="form-label" for="header-input">
           Header:
