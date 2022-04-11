@@ -16,7 +16,7 @@ return [
   ],
   'admin' => [
     'controller' => 'admin',
-    'action' => 'admin',
+    'action' => 'create',
   ],
   'admin/posts' => [
     'controller' => 'admin',

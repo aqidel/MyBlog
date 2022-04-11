@@ -20,13 +20,14 @@
           id="header-input"
           class="form-control"
           type="text"
-          required/>
+          name="header"
+          required>
       </div>
       <div class="mb-2">
         <label class="form-label" for="text-input">
           Text:
         </label>
-        <textarea id="text-input" class="form-control" required></textarea>
+        <textarea id="text-input" class="form-control" name="text" required></textarea>
       </div>
       <div class="mb-2">
         <label class="form-label" for="file-input">
@@ -35,12 +36,12 @@
         <input
           id="file-input"
           class="form-control"
-          type="file"/>
+          type="file">
       </div>
       <input
         class="btn btn-primary" 
         type="submit"
-        value="Submit"/>
+        value="Submit">
     </form>
   </div>
 </div>
