@@ -34,12 +34,9 @@ class AdminController extends Controller {
     }
   }
 
-  public function posts_action() {
-    //
-  }
-
   public function add_action() {
     $this->model->insert($_POST);
+    $this->model->upload_image();
     header('Location: http://myblog.ru/admin');
   }
 

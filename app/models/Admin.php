@@ -22,4 +22,9 @@ class Admin extends Model {
     $stmt->execute();
   }
 
+  public function upload_image() {
+    $image = 'static/img/' . basename($_FILES["uploadFile"]["name"]);
+    move_uploaded_file($_FILES["uploadFile"]["tmp_name"], $image);
+  }
+
 }

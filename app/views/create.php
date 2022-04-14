@@ -1,17 +1,17 @@
 <div class="admin-wrap">
-  <div class="control-block">
+  <div id="control-block">
+    <a class="control-link" href="/">
+      <div class="admin-btn">Main page</div>
+    </a>
     <a class="control-link" href="/admin">
       <div class="admin-btn">Create post</div>
-    </a>
-    <a class="control-link" href="/admin/posts">
-      <div class="admin-btn">List of posts</div>
     </a>
     <a class="control-link" href="/admin/logout">
       <div class="admin-btn">Logout</div>
     </a>
   </div>
-  <div class="form-block">
-    <form id="admin-form" action="/admin/add" method="post">
+  <div id="form-block">
+    <form id="admin-form" action="/admin/add" method="post" enctype="multipart/form-data">
       <div class="mb-2">
         <label class="form-label" for="header-input">
           Header:
@@ -36,7 +36,9 @@
         <input
           id="file-input"
           class="form-control"
-          type="file">
+          type="file"
+          name="uploadFile"
+          required>
       </div>
       <input
         class="btn btn-primary" 
@@ -44,4 +46,5 @@
         value="Submit">
     </form>
   </div>
+  <div id="posts-block"></div>
 </div>

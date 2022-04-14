@@ -18,10 +18,6 @@ return [
     'controller' => 'admin',
     'action' => 'create',
   ],
-  'admin/posts' => [
-    'controller' => 'admin',
-    'action' => 'posts',
-  ],
   'admin/add' => [
     'controller' => 'admin',
     'action' => 'add',

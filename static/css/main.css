@@ -108,7 +108,7 @@ body {
   display: flex;
 }
 
-.control-block {
+#control-block {
   width: 15vw;
   height: 100vh;
   background-color: #808080;
@@ -136,13 +136,20 @@ body {
   background-color: #999999;
 }
 
-.form-block {
-  width: 85vw;
+#form-block {
+  width: 45vw;
   height: 100vh;
+  border-right: 1px solid #808080;
   padding: 20px 0 0 20px;
   box-sizing: border-box;
 }
 
 #admin-form {
   width: 20vw;
+}
+
+#posts-block {
+  width: 40vw;
+  height: 100vh;
+  box-sizing: border-box;
 }
