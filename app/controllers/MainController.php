@@ -7,7 +7,8 @@ use app\core\Controller;
 class MainController extends Controller {
 
   public function main_action() {
-    $this->view->render();
+    $data = $this->model->get_posts();
+    $this->view->render($data);
   }
   
 }

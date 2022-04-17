@@ -9,15 +9,17 @@
       </div>
     </div>
   </div>
-  <article class="post">
-    <h1 class="post-header">Lorem ipsum</h1>
-    <p class="date">30 March, 2022</p>
-    <img class="post-img" src="../../static/img/tabby_cat.jpg" alt="img.jpeg"/>
-    <p class="post-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-  </article>
+  <?php foreach ($data as $row): ?>
+    <article class="post">
+      <h1 class="post-header">
+        <?= $row['header'] ?>
+      </h1>
+      <p class="date">30 March, 2022</p>
+      <img class="post-img" src="../../static/img/tabby_cat.jpg" alt="img.jpeg"/>
+      <p class="post-text">
+        <?= $row['text'] ?>
+      </p>
+      <button class="btn btn-primary mb-2">Delete post</button>
+    </article>
+  <?php endforeach;?>
 </div>

@@ -10,7 +10,7 @@ class View {
     $this->view = $action;
   }
 
-  public function render() {
+  public function render($data = null) {
     require 'app/views/' . $this->view . '.php';
   }
 

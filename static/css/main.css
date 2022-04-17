@@ -137,19 +137,12 @@ body {
 }
 
 #form-block {
-  width: 45vw;
+  width: 80vw;
   height: 100vh;
-  border-right: 1px solid #808080;
   padding: 20px 0 0 20px;
   box-sizing: border-box;
 }
 
 #admin-form {
   width: 20vw;
-}
-
-#posts-block {
-  width: 40vw;
-  height: 100vh;
-  box-sizing: border-box;
 }

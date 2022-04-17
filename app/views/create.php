@@ -37,8 +37,7 @@
           id="file-input"
           class="form-control"
           type="file"
-          name="uploadFile"
-          required>
+          name="uploadFile">
       </div>
       <input
         class="btn btn-primary" 
@@ -46,5 +45,4 @@
         value="Submit">
     </form>
   </div>
-  <div id="posts-block"></div>
 </div>
