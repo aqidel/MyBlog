@@ -14,7 +14,9 @@
       <h1 class="post-header">
         <?= $row['header'] ?>
       </h1>
-      <p class="date">30 March, 2022</p>
+      <p class="date">
+        <?= $row['date'] ?>
+      </p>
       <img class="post-img" src="../../static/img/tabby_cat.jpg" alt="img.jpeg"/>
       <p class="post-text">
         <?= $row['text'] ?>

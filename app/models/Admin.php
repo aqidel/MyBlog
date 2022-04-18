@@ -13,7 +13,7 @@ class Admin extends Model {
       'header' => $post['header'],
       'text' => $post['text'],
     ];
-    $stmt = $this->db->prepare('INSERT INTO posts VALUES (:id, :header, :text)');
+    $stmt = $this->db->prepare('INSERT INTO posts VALUES (:id, :header, :text, CURDATE())');
     if (!empty($params)) {
       $stmt->bindValue('id', $params['id'], PDO::PARAM_INT);
       $stmt->bindValue('header', $params['header'], PDO::PARAM_STR);
