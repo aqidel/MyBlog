@@ -17,7 +17,7 @@
       <p class="date">
         <?= $row['date'] ?>
       </p>
-      <img class="post-img" src="../../static/img/tabby_cat.jpg" alt="img.jpeg"/>
+      <img class="post-img" src=<?= "../../static/img/" . $row['id'] . ".jpg" ?> alt="uncattable to load"/>
       <p class="post-text">
         <?= $row['text'] ?>
       </p>

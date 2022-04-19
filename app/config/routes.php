@@ -1,7 +1,6 @@
 <?php
 
 return [
-
   '' => [
     'controller' => 'main',
     'action' => 'main',
@@ -26,5 +25,4 @@ return [
     'controller' => 'admin',
     'action' => 'delete',
   ],
-
 ];

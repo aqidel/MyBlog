@@ -5,7 +5,7 @@ namespace app\models;
 use app\core\Model;
 use PDO;
 
-class Admin extends Model {
+class AdminModel extends Model {
 
   public function insert($post) {
     $params = [
@@ -23,8 +23,10 @@ class Admin extends Model {
   }
 
   public function upload_image() {
-    $image = 'static/img/' . basename($_FILES["uploadFile"]["name"]);
-    move_uploaded_file($_FILES["uploadFile"]["tmp_name"], $image);
+    $id = $this->db->lastInsertId();
+    $_FILES['uploadFile']['name'] = $id . '.jpg';
+    $image = 'static/img/' . basename($_FILES['uploadFile']['name']);
+    move_uploaded_file($_FILES['uploadFile']['tmp_name'], $image);
   }
 
 }

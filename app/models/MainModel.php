@@ -5,10 +5,10 @@ namespace app\models;
 use app\core\Model;
 use PDO;
 
-class Main extends Model {
+class MainModel extends Model {
 
   public function get_posts() {
-    $stmt = $this->db->query('SELECT header, text, date FROM posts');
+    $stmt = $this->db->query('SELECT id, header, text, date FROM posts');
     $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $stmt = $this->date_conversion($stmt);
     return $stmt;
