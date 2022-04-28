@@ -21,7 +21,7 @@
       <p class="post-text">
         <?= $row['text'] ?>
       </p>
-      <button class="btn btn-primary mb-2">Delete post</button>
+      <button onclick="deletePost(<?= $row['id'] ?>)" class="btn btn-primary mb-2">Delete post</button>
     </article>
   <?php endforeach;?>
 </div>

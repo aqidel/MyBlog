@@ -7,16 +7,16 @@ class Router {
   public $routes;
   public $url;
 
-  function __construct($url) {
+  function __construct() {
     $this->routes = require 'app/config/routes.php';
-    $this->url = trim($url, '/');
+    $this->url = parse_url($_SERVER['REQUEST_URI'])['path'];
     $this->match_url();
   }
 
   public function match_url() {
     foreach ($this->routes as $route => $options) {
       if ($this->url == $route) {
-        $this->controller_call($options, $route);
+        $this->controller_call($options);
         return;
       }
     }

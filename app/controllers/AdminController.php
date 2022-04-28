@@ -40,8 +40,4 @@ class AdminController extends Controller {
     header('Location: http://myblog.ru/admin');
   }
 
-  public function delete_action() {
-    //
-  }
-
 }

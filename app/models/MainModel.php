@@ -38,5 +38,9 @@ class MainModel extends Model {
     }
     return $stmt;
   }
+
+  public function delete_post($id) {
+    $this->db->query("DELETE FROM posts WHERE id=$id");
+  }
   
 }
