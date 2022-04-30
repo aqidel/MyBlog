@@ -8,7 +8,7 @@ use PDO;
 class MainModel extends Model {
 
   public function get_posts() {
-    $stmt = $this->db->query('SELECT id, header, text, date FROM posts');
+    $stmt = $this->db->query("SELECT id, header, text, date FROM posts");
     $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $stmt = $this->date_conversion($stmt);
     return $stmt;
@@ -39,7 +39,9 @@ class MainModel extends Model {
     return $stmt;
   }
 
-  public function delete_post($id) {
+  public function delete_post($query) {
+    $query_array = explode('=', $query);
+    $id = $query_array[1];
     $this->db->query("DELETE FROM posts WHERE id=$id");
   }
   

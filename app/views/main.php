@@ -17,11 +17,13 @@
       <p class="date">
         <?= $row['date'] ?>
       </p>
-      <img class="post-img" src=<?= "../../static/img/" . $row['id'] . ".jpg" ?> alt="uncattable to load"/>
+      <img class="post-img" src=<?= "../../static/img/" . $row['id'] . ".jpg" ?> alt="some cat's image"/>
       <p class="post-text">
         <?= $row['text'] ?>
       </p>
-      <button onclick="deletePost(<?= $row['id'] ?>)" class="btn btn-primary mb-2">Delete post</button>
+      <a href=<?= "/delete?post=" . $row['id'] ?>>
+        <button class="btn btn-primary mb-2">Delete post</button>
+      </a>
     </article>
   <?php endforeach;?>
 </div>
