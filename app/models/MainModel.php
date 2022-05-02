@@ -7,8 +7,18 @@ use PDO;
 
 class MainModel extends Model {
 
-  public function get_posts() {
-    $stmt = $this->db->query("SELECT id, header, text, date FROM posts");
+  public function pagination($url_query) {
+    $onpage = 3;
+    // Gets first post's id from exploded url query
+    $page_number = explode('=', $url_query)[1];
+    // Calculation of the first post's position
+    $first_post = ($page_number * $onpage) - $onpage;
+    $page_posts = $this->get_posts($first_post, $onpage);
+    return $page_posts;
+  }
+
+  public function get_posts($first_post, $onpage_posts) {
+    $stmt = $this->db->query("SELECT * FROM posts ORDER BY id ASC LIMIT $first_post, $onpage_posts");
     $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $stmt = $this->date_conversion($stmt);
     return $stmt;
@@ -40,8 +50,8 @@ class MainModel extends Model {
   }
 
   public function delete_post($query) {
-    $query_array = explode('=', $query);
-    $id = $query_array[1];
+    // Gets id from url query
+    $id = explode('=', $query)[1];
     $this->db->query("DELETE FROM posts WHERE id=$id");
   }
   

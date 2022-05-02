@@ -7,8 +7,14 @@ use app\core\Controller;
 class MainController extends Controller {
 
   public function main_action() {
-    $data = $this->model->get_posts();
-    $this->view->render($data);
+    // Check for default page's non-existant query
+    if (!isset(parse_url($_SERVER['REQUEST_URI'])['query'])) {
+      header('Location: http://myblog.ru/?page=1');
+    } else {
+      $url_query = parse_url($_SERVER['REQUEST_URI'])['query'];
+      $data = $this->model->pagination($url_query);
+      $this->view->render($data);
+    }
   }
 
   public function delete_action() {

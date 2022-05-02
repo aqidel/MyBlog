@@ -9,6 +9,7 @@
       </div>
     </div>
   </div>
+  <!-- Posts feed's part -->
   <?php foreach ($data as $row): ?>
     <article class="post">
       <h1 class="post-header">
@@ -25,5 +26,15 @@
         <button class="btn btn-primary mb-2">Delete post</button>
       </a>
     </article>
-  <?php endforeach;?>
+  <?php endforeach; ?>
+  <!-- Pagination part -->
+  <ul class="pagination">
+    <?php for ($i = 1; $i <= 5; $i++): ?>
+      <li class="page-item">
+        <a class="page-link" href=<?= "/?page=" . $i ?>>
+          <?= $i ?>
+        </a>
+      </li>
+    <?php endfor; ?>
+  </ul>
 </div>
