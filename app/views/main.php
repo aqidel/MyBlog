@@ -10,31 +10,43 @@
     </div>
   </div>
   <!-- Posts feed's part -->
-  <?php foreach ($data as $row): ?>
+  <?php foreach ($pagination['posts'] as $post): ?>
     <article class="post">
       <h1 class="post-header">
-        <?= $row['header'] ?>
+        <?= $post['header'] ?>
       </h1>
       <p class="date">
-        <?= $row['date'] ?>
+        <?= $post['date'] ?>
       </p>
-      <img class="post-img" src=<?= "../../static/img/" . $row['id'] . ".jpg" ?> alt="some cat's image"/>
+      <img class="post-img" src=<?= "../../static/img/" . $post['id'] . ".jpg" ?> alt="some cat's image"/>
       <p class="post-text">
-        <?= $row['text'] ?>
+        <?= $post['text'] ?>
       </p>
-      <a href=<?= "/delete?post=" . $row['id'] ?>>
+      <a href=<?= "/delete?post=" . $post['id'] ?>>
         <button class="btn btn-primary mb-2">Delete post</button>
       </a>
     </article>
   <?php endforeach; ?>
   <!-- Pagination part -->
-  <ul class="pagination">
-    <?php for ($i = 1; $i <= 5; $i++): ?>
-      <li class="page-item">
-        <a class="page-link" href=<?= "/?page=" . $i ?>>
+  <ul class="pagination mt-3">
+    <li class="<?= $pagination['current_page'] - 1 == 0 ? "page-item disabled" : "page-item" ?>">
+      <a class="page-link" 
+         href= <?= "/?page=" . $pagination['current_page'] - 1 ?> >
+         Previous
+      </a>
+    </li>
+    <?php for ($i = 1; $i <= $pagination['pages']; $i++): ?>
+      <li class="<?= $pagination['current_page'] == $i ? "page-item active" : "page-item" ?>">
+        <a class="page-link" href= <?= "/?page=" . $i ?> >
           <?= $i ?>
         </a>
       </li>
     <?php endfor; ?>
+    <li class="<?= $pagination['current_page'] == $pagination['pages'] ? "page-item disabled" : "page-item" ?>">
+      <a class="page-link" 
+         href= <?= "/?page=" . $pagination['current_page'] + 1 ?> >
+         Next
+      </a>
+    </li>
   </ul>
 </div>

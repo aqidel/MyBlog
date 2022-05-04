@@ -8,20 +8,31 @@ use PDO;
 class MainModel extends Model {
 
   public function pagination($url_query) {
+    $pagination = [];
     $onpage = 3;
-    // Gets first post's id from exploded url query
-    $page_number = explode('=', $url_query)[1];
+    // Get current page number from exploded url query
+    $pagination['current_page'] = explode('=', $url_query)[1];
+    // Get the total number of pages
+    $pagination['pages'] = $this->calculate_pages($onpage);
     // Calculation of the first post's position
-    $first_post = ($page_number * $onpage) - $onpage;
-    $page_posts = $this->get_posts($first_post, $onpage);
-    return $page_posts;
+    $first_post = ($pagination['current_page'] * $onpage) - $onpage;
+    // Get all posts for the current page
+    $pagination['posts'] = $this->get_posts($first_post, $onpage);
+    return $pagination;
   }
 
-  public function get_posts($first_post, $onpage_posts) {
-    $stmt = $this->db->query("SELECT * FROM posts ORDER BY id ASC LIMIT $first_post, $onpage_posts");
+  public function get_posts($first_post, $onpage) {
+    $stmt = $this->db->query("SELECT * FROM posts ORDER BY id ASC LIMIT $first_post, $onpage");
     $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $stmt = $this->date_conversion($stmt);
     return $stmt;
+  }
+
+  public function calculate_pages($onpage) {
+    $stmt = $this->db->query("SELECT COUNT(id) FROM posts");
+    $num_of_posts = $stmt->fetchColumn();
+    $pages = ceil($num_of_posts / $onpage);
+    return $pages;
   }
 
   public function date_conversion($stmt) {
@@ -50,7 +61,7 @@ class MainModel extends Model {
   }
 
   public function delete_post($query) {
-    // Gets id from url query
+    // Get id from url query
     $id = explode('=', $query)[1];
     $this->db->query("DELETE FROM posts WHERE id=$id");
   }

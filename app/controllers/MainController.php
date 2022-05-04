@@ -12,8 +12,8 @@ class MainController extends Controller {
       header('Location: http://myblog.ru/?page=1');
     } else {
       $url_query = parse_url($_SERVER['REQUEST_URI'])['query'];
-      $data = $this->model->pagination($url_query);
-      $this->view->render($data);
+      $pagination = $this->model->pagination($url_query);
+      $this->view->render($pagination);
     }
   }
 
