@@ -60,10 +60,12 @@ class MainModel extends Model {
     return $stmt;
   }
 
-  public function delete_post($query) {
+  public function delete_post() {
+    $query = parse_url($_SERVER['REQUEST_URI'])['query'];
     // Get id from url query
     $id = explode('=', $query)[1];
     $this->db->query("DELETE FROM posts WHERE id=$id");
+    unlink('static/img/' . $id . '.jpg');
   }
   
 }

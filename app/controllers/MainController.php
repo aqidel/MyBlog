@@ -18,8 +18,7 @@ class MainController extends Controller {
   }
 
   public function delete_action() {
-    $query = parse_url($_SERVER['REQUEST_URI'])['query'];
-    $this->model->delete_post($query);
+    $this->model->delete_post();
     header('Location: http://myblog.ru/');
   }
   
