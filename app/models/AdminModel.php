@@ -3,6 +3,7 @@
 namespace app\models;
 
 use app\core\Model;
+use Error;
 use PDO;
 
 class AdminModel extends Model {
@@ -22,11 +23,8 @@ class AdminModel extends Model {
     $stmt->execute();
   }
 
-  public function upload_image() {
-    $id = $this->db->lastInsertId();
-    $_FILES['uploadFile']['name'] = $id . '.jpg';
-    $image = 'static/img/' . basename($_FILES['uploadFile']['name']);
-    move_uploaded_file($_FILES['uploadFile']['tmp_name'], $image);
+  public function last_id() {
+    return $this->db->lastInsertId();
   }
 
 }

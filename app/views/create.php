@@ -21,13 +21,13 @@
           class="form-control"
           type="text"
           name="header"
-          required>
+        >
       </div>
       <div class="mb-2">
         <label class="form-label" for="text-input">
           Text:
         </label>
-        <textarea id="text-input" class="form-control" name="text" required></textarea>
+        <textarea id="text-input" class="form-control" name="text"></textarea>
       </div>
       <div class="mb-2">
         <label class="form-label" for="file-input">

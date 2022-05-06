@@ -1,27 +1,27 @@
 <?php
 
 return [
-  '/' => [
+  '' => [
     'controller' => 'main',
     'action' => 'main',
   ],
-  '/admin/login' => [
-    'controller' => 'admin',
-    'action' => 'login',
-  ],
-  '/admin/logout' => [
-    'controller' => 'admin',
-    'action' => 'logout',
-  ],
-  '/admin' => [
+  'admin' => [
     'controller' => 'admin',
     'action' => 'create',
   ],
-  '/admin/add' => [
+  'admin/login' => [
+    'controller' => 'admin',
+    'action' => 'login',
+  ],
+  'admin/logout' => [
+    'controller' => 'admin',
+    'action' => 'logout',
+  ],
+  'admin/add' => [
     'controller' => 'admin',
     'action' => 'add',
   ],
-  '/delete' => [
+  'delete' => [
     'controller' => 'main',
     'action' => 'delete',
   ],

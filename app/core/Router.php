@@ -5,17 +5,17 @@ namespace app\core;
 class Router {
 
   public $routes;
-  public $url;
 
   function __construct() {
     $this->routes = require 'app/config/routes.php';
-    $this->url = parse_url($_SERVER['REQUEST_URI'])['path'];
-    $this->match_url();
+    $url = parse_url($_SERVER['REQUEST_URI'])['path'];
+    $url = trim($url, '/');
+    $this->match_url($url);
   }
 
-  public function match_url() {
+  public function match_url($url) {
     foreach ($this->routes as $route => $options) {
-      if ($this->url == $route) {
+      if ($url == $route) {
         $this->controller_call($options);
         return;
       }
