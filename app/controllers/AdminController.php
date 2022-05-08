@@ -35,37 +35,38 @@ class AdminController extends Controller {
   }
 
   public function add_action() {
-    // 1. validate image
-    // 2. create post
-    // 3. upload image
-    $this->model->insert($_POST);
-    $this->image_upload();
-    header('Location: http://myblog.ru/admin');
+    if ($this->validate_image() === true) {
+      $this->model->insert($_POST);
+      $this->image_upload();
+      header('Location: http://myblog.ru/admin');
+    } else {
+      header('Location: http://myblog.ru/admin');
+    }
   }
 
-  public function image_upload() {
+  public function validate_image() {
     $MAX_SIZE = 2 * 1024 * 1024;
-    //$ALLOWED_TYPES = ['image/png', 'image/jpeg'];
-    $ALLOWED_TYPES = ['some text'];
-    // Does file exist?
-    if (isset($_FILES['uploadFile'])) {
-      // Check for file's size
-      if (filesize($_FILES['uploadFile']['tmp_name']) < $MAX_SIZE) {
-        // MIME-type check out
-        if (in_array(mime_content_type($_FILES['uploadFile']['tmp_name']), $ALLOWED_TYPES)) {
-          $id = $this->model->last_id();
-          $_FILES['uploadFile']['name'] = $id . '.jpg';
-          $image = 'static/img/' . basename($_FILES['uploadFile']['name']);
-          move_uploaded_file($_FILES['uploadFile']['tmp_name'], $image);
-        } else {
-          //
-        }
-      } else {
-        //
-      }
-    } else {
-      //
+    $ALLOWED_TYPES = ['image/png', 'image/jpeg'];
+    // Does image exists?
+    if (!isset($_FILES['uploadFile'])) {
+      return [false, 'Upload the image'];
     }
+    // Check for file's size
+    if (!filesize($_FILES['uploadFile']['tmp_name']) < $MAX_SIZE) {
+      return [false, 'File size exceeds 2MB limit'];
+    }
+    // MIME-type check out
+    if (!in_array(mime_content_type($_FILES['uploadFile']['tmp_name']), $ALLOWED_TYPES)) {
+      return [false, 'MIME type is wrong'];
+    }
+    return true;
+  }
+
+  public function image_upload() {        
+    $id = $this->model->last_id();
+    $_FILES['uploadFile']['name'] = $id . '.jpg';
+    $image = 'static/img/' . basename($_FILES['uploadFile']['name']);
+    move_uploaded_file($_FILES['uploadFile']['tmp_name'], $image);
   }
 
 }
