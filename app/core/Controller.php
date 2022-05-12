@@ -9,14 +9,12 @@ class Controller {
   public $action;
   public $controller;
   public $view;
-  public $modals;
   public $model;
 
   function __construct($action, $controller) {
     $this->action = $action;
     $this->controller = $controller;
     $this->view = new View($action);
-    $this->modals = new Modals();
     $this->model = $this->init_model($controller);
   }
 

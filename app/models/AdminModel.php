@@ -3,7 +3,6 @@
 namespace app\models;
 
 use app\core\Model;
-use Error;
 use PDO;
 
 class AdminModel extends Model {

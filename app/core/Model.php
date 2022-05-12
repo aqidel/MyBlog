@@ -8,7 +8,7 @@ class Model {
 
   protected $db;
 
-  public function __construct($controller) {
+  public function __construct() {
     $this->connect();
   }
 

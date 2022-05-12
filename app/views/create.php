@@ -12,37 +12,39 @@
   </div>
   <div id="form-block">
     <form id="admin-form" action="/admin/add" method="post" enctype="multipart/form-data">
+      <?php require 'app/views/error.php' ?>
       <div class="mb-2">
-        <label class="form-label" for="header-input">
-          Header:
-        </label>
-        <input
-          id="header-input"
-          class="form-control"
-          type="text"
+        <label class="form-label" for="header-input">Header:</label>
+        <input 
+          id="header-input" 
+          class="form-control" 
+          type="text" 
           name="header"
-        >
+          minlength="2"
+          maxlength="30" 
+          required>
       </div>
       <div class="mb-2">
-        <label class="form-label" for="text-input">
-          Text:
-        </label>
-        <textarea id="text-input" class="form-control" name="text"></textarea>
+        <label class="form-label" for="text-input">Text:</label>
+        <textarea 
+          id="text-input" 
+          class="form-control" 
+          name="text" 
+          minlength="2"
+          maxlength="200"
+          required>
+        </textarea>
       </div>
       <div class="mb-2">
-        <label class="form-label" for="file-input">
-          Upload image:
-        </label>
-        <input
-          id="file-input"
-          class="form-control"
-          type="file"
-          name="uploadFile">
+        <label class="form-label" for="file-input">Upload image:</label>
+        <input 
+          id="file-input" 
+          class="form-control" 
+          type="file" 
+          name="uploadFile" 
+          required>
       </div>
-      <input
-        class="btn btn-primary" 
-        type="submit"
-        value="Submit">
+      <input class="btn btn-primary" type="submit" value="Submit">
     </form>
   </div>
 </div>

@@ -14,6 +14,7 @@ class AdminController extends Controller {
         $_SESSION['admin'] = true;
         header('Location: http://myblog.ru/admin');
       } else {
+        $_SESSION['error_text'] = 'Wrong data!';
         header('Location: http://myblog.ru/admin/login');
       }
     } else {
@@ -35,11 +36,13 @@ class AdminController extends Controller {
   }
 
   public function add_action() {
-    if ($this->validate_image() === true) {
+    $is_img_valid = $this->validate_image();
+    if ($is_img_valid === true) {
       $this->model->insert($_POST);
       $this->image_upload();
       header('Location: http://myblog.ru/admin');
     } else {
+      $_SESSION['error_text'] = $is_img_valid[1];
       header('Location: http://myblog.ru/admin');
     }
   }
@@ -52,7 +55,7 @@ class AdminController extends Controller {
       return [false, 'Upload the image'];
     }
     // Check for file's size
-    if (!filesize($_FILES['uploadFile']['tmp_name']) < $MAX_SIZE) {
+    if (!filesize($_FILES['uploadFile']['tmp_name']) > $MAX_SIZE) {
       return [false, 'File size exceeds 2MB limit'];
     }
     // MIME-type check out
