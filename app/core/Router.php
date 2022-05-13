@@ -20,7 +20,7 @@ class Router {
         return;
       }
     }
-    header('HTTP/1.1 404');
+    header('HTTP/1.1 404 Not Found');
   }
 
   public function controller_call($options) {
